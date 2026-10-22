@@ -85,7 +85,7 @@ public class RadioStationServiceTest {
     public void setCountStation(){
         RadioStationService station = new RadioStationService(50);
         int expected = 49;
-        int actual = station.getMaxStation();
+        int actual = station.getMAX_STATION();
         Assertions.assertEquals(expected, actual);
     }
 
