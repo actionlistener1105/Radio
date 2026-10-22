@@ -66,7 +66,7 @@ public class RadioStationServiceTest {
         RadioStationService station = new RadioStationService();
         int expected = 0;
         station.setNumberCurrentRadioStation(1);
-        station.previousStation();
+        station.prevStation();
         int actual = station.getNumberCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
@@ -76,7 +76,55 @@ public class RadioStationServiceTest {
         RadioStationService station = new RadioStationService();
         int expected = 9;
         station.setNumberCurrentRadioStation(0);
-        station.previousStation();
+        station.prevStation();
+        int actual = station.getNumberCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void setCountStation(){
+        RadioStationService station = new RadioStationService(50);
+        int expected = 49;
+        int actual = station.getMaxStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void nextStationToMaxWithCountTest(){
+        RadioStationService station = new RadioStationService(50);
+        int expected = 49;
+        station.setNumberCurrentRadioStation(48);
+        station.nextStation();
+        int actual = station.getNumberCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void nextStationTransitionThroughMaxWithCountTest(){
+        RadioStationService station = new RadioStationService(50);
+        int expected = 0;
+        station.setNumberCurrentRadioStation(49);
+        station.nextStation();
+        int actual = station.getNumberCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void prevStationToMinWithCountTest(){
+        RadioStationService station = new RadioStationService(50);
+        int expected = 0;
+        station.setNumberCurrentRadioStation(1);
+        station.prevStation();
+        int actual = station.getNumberCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void prevStationTransitionThroughMinWithCountTest(){
+        RadioStationService station = new RadioStationService(50);
+        int expected = 49;
+        station.setNumberCurrentRadioStation(0);
+        station.prevStation();
         int actual = station.getNumberCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
