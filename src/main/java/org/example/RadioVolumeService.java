@@ -1,5 +1,12 @@
 package org.example;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class RadioVolumeService {
 
     private final int MIN_VOLUME = 0;
@@ -19,9 +26,6 @@ public class RadioVolumeService {
         }else this.currentSoundVolume--;
     }
 
-    public int getCurrentSoundVolume() {
-        return currentSoundVolume;
-    }
 
     public void setCurrentSoundVolume(int volume) {
         if(volume >= MIN_VOLUME && volume <= MAX_VOLUME){

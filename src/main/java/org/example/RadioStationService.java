@@ -1,5 +1,12 @@
 package org.example;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class RadioStationService {
 
     private int MAX_STATION = 9;
@@ -10,19 +17,13 @@ public class RadioStationService {
     private int countStation = 10;
 
 
-    public RadioStationService() {
-        this.numberCurrentRadioStation = MIN_STATION;
-    }
-
     public RadioStationService(int count){
         this.numberCurrentRadioStation = MIN_STATION;
         this.countStation = count;
         this.MAX_STATION = count - 1;
     }
 
-    public int getNumberCurrentRadioStation() {
-        return numberCurrentRadioStation;
-    }
+
 
     public void setNumberCurrentRadioStation(int station) {
         if (station < MIN_STATION || station > MAX_STATION) {
@@ -31,13 +32,7 @@ public class RadioStationService {
         this.numberCurrentRadioStation = station;
     }
 
-    public int getMaxStation() {
-        return MAX_STATION;
-    }
 
-    public int getMinStation() {
-        return MIN_STATION;
-    }
 
     public void nextStation() {
         numberCurrentRadioStation = (numberCurrentRadioStation + 1) % (MAX_STATION + 1);
