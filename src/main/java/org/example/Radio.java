@@ -6,12 +6,12 @@ public class Radio {
     private final int minStation = 0;
     private int numberCurrentRadioStation = 0;
 
-    private final int MIN_VOLUME = 0;
-    private final int MAX_VOLUME = 100;
+    private final int minVolume = 0;
+    private final int maxVolume = 100;
     private int currentSoundVolume = 0;
 
     public void nextVolume() {
-        if (currentSoundVolume == MAX_VOLUME) {
+        if (currentSoundVolume == maxVolume) {
             return;
         } else {
             this.currentSoundVolume++;
@@ -19,7 +19,7 @@ public class Radio {
     }
 
     public void prevVolume() {
-        if (currentSoundVolume == MIN_VOLUME) {
+        if (currentSoundVolume == minVolume) {
             return;
         } else {
             this.currentSoundVolume--;
@@ -31,7 +31,7 @@ public class Radio {
     }
 
     public void setCurrentSoundVolume(int volume) {
-        if (volume >= MIN_VOLUME && volume <= MAX_VOLUME) {
+        if (volume >= minVolume && volume <= maxVolume) {
             this.currentSoundVolume = volume;
         } else {
             return;
